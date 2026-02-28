@@ -1,0 +1,26 @@
+{
+  "name": "tale-studio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0 --port 4321",
+    "start": "astro preview --host 0.0.0.0 --port ${PORT:-4321} --allowed-hosts=localhost,127.0.0.1,.up.railway.app"
+  },
+  "dependencies": {
+    "astro": "5.17.2",
+    "three": "0.183.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.2.1",
+    "@types/node": "22.13.10",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.5.3",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

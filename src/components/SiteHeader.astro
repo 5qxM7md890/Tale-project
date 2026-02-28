@@ -1,0 +1,44 @@
+---
+const nav = [
+  { label: 'Projects', href: '/projects' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="mt-5 rounded-2xl border border-white/10 bg-black/30 backdrop-blur-xl">
+      <div class="flex items-center justify-between px-4 py-3">
+        <a href="/" data-home class="flex items-center gap-2 text-xs tracking-[0.25em] text-white/80">
+          <span class="font-semibold">TALE</span>
+          <span class="text-white/40">STUDIO</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm text-white/70">
+          {nav.map((item) => (
+            <a class="hover:text-white transition" href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button
+            id="sound-toggle"
+            type="button"
+            class="rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/10 transition"
+            aria-pressed="false"
+          >
+            Sound: Off
+          </button>
+
+          <a
+            class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white transition"
+            href="/contact"
+          >
+            Let’s talk ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

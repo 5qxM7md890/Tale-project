@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact — Tale">
+  <Fragment slot="head">
+    <meta name="tale-accent" content="#40d2ff" />
+  </Fragment>
+
+  <div class="mx-auto max-w-4xl px-6 pt-28">
+    <div class="text-xs tracking-[0.25em] text-white/40">CONTACT</div>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">Let’s build something.</h1>
+    <p class="mt-6 text-white/60">Tell us what you’re making. We’ll reply within 1–2 business days.</p>
+
+    <form class="mt-10 grid gap-4" method="post" action="#">
+      <input class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/25"
+        name="name" placeholder="Name" />
+      <input class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/25"
+        name="email" placeholder="Email" />
+      <textarea class="min-h-40 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/25"
+        name="message" placeholder="Message"></textarea>
+      <button class="w-fit rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-black hover:bg-white/90 transition" type="submit">
+        Send
+      </button>
+    </form>
+  </div>
+</BaseLayout>

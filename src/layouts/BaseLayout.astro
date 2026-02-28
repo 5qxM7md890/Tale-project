@@ -1,0 +1,53 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+import '../styles/global.css';
+import clientUrl from '../scripts/client.ts?url';
+
+const { title = 'Tale Studio', description = 'Tale — creative technology studio.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="tale-build" content="full-v3" />
+    <title>{title}</title>
+
+    <!-- Allow per-page head injection -->
+    <slot name="head" />
+
+    <ClientRouter />
+  </head>
+
+  <body>
+    <!-- Persistent WebGL canvas -->
+    <canvas
+      id="tale-canvas"
+      transition:persist
+      aria-hidden="true"
+      style="position:fixed;inset:0;width:100vw;height:100vh;display:block;pointer-events:none;"
+    ></canvas>
+
+    <!-- Guaranteed client runtime -->
+    <script type="module" src={clientUrl}></script>
+
+    <noscript>
+      <div style="position:fixed;inset:auto 12px 12px 12px;z-index:9999;padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.55);color:rgba(255,255,255,.85);backdrop-filter:blur(10px);font-size:12px;">
+        JavaScript is disabled — WebGL and sound are off.
+      </div>
+    </noscript>
+
+    <div class="relative z-10">
+      <SiteHeader />
+      <main id="main" class="min-h-screen">
+        <slot />
+      </main>
+      <SiteFooter />
+    </div>
+  </body>
+</html>

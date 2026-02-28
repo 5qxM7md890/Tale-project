@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const { slug } = Astro.params;
+
+const data: Record<string, { title: string; year: number; excerpt: string; accent: string }> = {
+  aurora: { title: 'Aurora', year: 2026, excerpt: 'A cinematic WebGL brand film with scroll-driven reveals.', accent: '#7c5cff' },
+  flux: { title: 'Flux', year: 2026, excerpt: 'Interactive product story with realtime lighting and transitions.', accent: '#40d2ff' },
+  nocturne: { title: 'Nocturne', year: 2026, excerpt: 'Realtime identity system with generative visuals.', accent: '#ffffff' },
+};
+
+const entry = data[String(slug)] ?? { title: String(slug), year: 2026, excerpt: 'Project description coming soon.', accent: '#7c5cff' };
+---
+
+<BaseLayout title={`${entry.title} — Tale`}>
+  <Fragment slot="head">
+    <meta name="tale-accent" content={entry.accent} />
+  </Fragment>
+
+  <div class="mx-auto max-w-4xl px-6 pt-28">
+    <div class="text-xs text-white/40">{entry.year}</div>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">{entry.title}</h1>
+    <p class="mt-4 text-white/60">{entry.excerpt}</p>
+
+    <div class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+      <div class="text-sm text-white/70">Services</div>
+      <div class="mt-3 flex flex-wrap gap-2 text-xs text-white/60">
+        <span class="rounded-full border border-white/10 bg-black/20 px-2 py-1">WebGL</span>
+        <span class="rounded-full border border-white/10 bg-black/20 px-2 py-1">Motion</span>
+        <span class="rounded-full border border-white/10 bg-black/20 px-2 py-1">Sound</span>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <a class="text-sm text-white/70 hover:text-white transition" href="/projects">← Back to projects</a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — Tale">
+  <Fragment slot="head">
+    <meta name="tale-accent" content="#7c5cff" />
+  </Fragment>
+
+  <div class="mx-auto max-w-4xl px-6 pt-28">
+    <div class="text-xs tracking-[0.25em] text-white/40">ABOUT</div>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">A studio for realtime craft.</h1>
+    <p class="mt-6 text-white/60">
+      Tale blends design, engineering, and sound to create immersive WebGL experiences that feel alive.
+    </p>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="font-semibold">Strategy</div>
+        <div class="mt-2 text-sm text-white/55">Concept, narrative, and product thinking.</div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="font-semibold">Creative Tech</div>
+        <div class="mt-2 text-sm text-white/55">Three.js, shaders, performance, tooling.</div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
